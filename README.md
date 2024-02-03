@@ -4,12 +4,12 @@
 
 # Description
 
-If you have a public repo and want to test something with the same content on a private repo, you can do a private repo by
+If you have a public repo and want to test something with the same content on a private repo and you need a specific branch, you can do a private repo by
 - Create a new repo
 - Import the repo using the public URL
 - You now have a private repo with the same content as the public one, but it's not synced automatically
 - Add the above file as a workflow and update it with the correct repo info
-- Go to actions, select the action, click on run workflow, add the branch name from the public repo you wanna send over to the private one, and run the action
+- Go to actions, select the action, click on run workflow, add the branch name from the public repo you want to send over to the private one, and run the action
 - When you add a new commit on the public repo, re-running the action will update the branch on the private repo with the latest commit as well
 
 # Usage
