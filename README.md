@@ -16,3 +16,7 @@ If you have a public repo and want to test something with the same content on a 
 
 https://github.com/stavares843/sync-public-branch/assets/29093946/23ddeb22-f7f0-4288-ae02-ce77718e798a
 
+
+<p align="center">
+   <a href="/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg?style=flat" /></a>
+</p>
