@@ -1,0 +1,30 @@
+name: Sync Public Branch to Private Repo
+
+on:
+  workflow_dispatch:
+    inputs:
+      branch_name:
+        description: 'Branch name to update'
+        required: true
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    env:
+      BRANCH_TO_SYNC: ${{ github.event.inputs.branch_name }}
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+      - name: Push changes to private repo
+        run: |
+          git remote add public https://github.com/org-name/repo-name
+          git fetch public
+          git checkout -b "$BRANCH_TO_SYNC" "public/$BRANCH_TO_SYNC"
+          git config --global user.email "youremail@email.com"
+          git config --global user.name "your name"  
+          git push origin "$BRANCH_TO_SYNC"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Cleanup
+        run: |
+          git remote remove public
