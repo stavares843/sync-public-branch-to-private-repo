@@ -20,3 +20,19 @@ https://github.com/stavares843/sync-public-branch/assets/29093946/23ddeb22-f7f0-
 <p align="center">
    <a href="/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg?style=flat" /></a>
 </p>
+
+# Notes
+
+If your repo has a `.workflows` folder you need to add the following to avoid this error
+
+<img width="713" alt="Captura de ecrã 2024-02-13, às 16 37 54" src="https://github.com/stavares843/sync-public-repo-to-private-repo/assets/29093946/feeafdd8-f216-486f-b65f-4e534bd8507a">
+
+- You need to create a token with `contents:write` and `workflows:write` scopes and add it on the checkout step
+
+```
+      - name: Check out code
+        uses: actions/checkout@v4
+        with:
+          # Fine-grained PAT with contents:write and workflows:write scopes
+          token: ${{ secrets.WORKFLOW }}
+``` 
